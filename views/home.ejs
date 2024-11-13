@@ -1,157 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/home_style.css">
-    <script src="https://kit.fontawesome.com/6f0f83005a.js" crossorigin="anonymous"></script>
     <title>nMeet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: #1f2124;
+            /* Darker Background */
+            color: #e0e0e0;
+            /* Lighter Text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #242629, #1f2124);
+            /* Subtle Gradient */
+        }
+
+        .app-title {
+            font-size: 2em;
+            font-weight: 700;
+            color: #00c853;
+            /* Green Title */
+            margin-bottom: 0.5em;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        #content-wrapper {
+            background: #292b2f;
+            /* Darker Container */
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            /* Sets a maximum width */
+            width: 90%;
+            /* Takes up 90% of the available width */
+        }
+
+        .styled-heading {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+
+        /* Form Styling */
+        .meeting-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            background: #35383c;
+            border-radius: 5px;
+            padding: 0.8rem 1rem;
+        }
+
+        .input-container i {
+            margin-right: 10px;
+            color: #888;
+        }
+
+        .input-box {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1em;
+            padding: 0.5rem;
+            outline: none;
+        }
+
+
+
+        button {
+            background-color: #00c853;
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00a846;
+        }
+
+        a.start-meeting-btn {
+            text-decoration: none;
+            display: block;
+            /* Make button full width on its own line */
+            margin-bottom: 1.2rem;
+        }
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #1a1c1f;
+            /* Darker footer */
+            margin-top: auto;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Media Query for Responsiveness - Adjust as needed */
+        @media (max-width: 500px) {
+            .app-title {
+                font-size: 2em;
+            }
+
+            #content-wrapper {
+                padding: 2rem;
+            }
+
+            .styled-heading {
+                font-size: 1.5em;
+            }
+
+            button,
+            .input-box {
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div id="header">
-        <div id="root-div">
-            <div id="left-div">
-                <!-- Large Heading with Bold Text -->
-                <div id="large-message" class="styled-heading">
-                    Seamless Video Connections
-                </div>
-    
-                <!-- Section for Creating and Joining Meetings -->
-                <div id="new-meeting-root" class="meeting-container">
-                    
-                    <!-- New Meeting Button -->
-                    <div id="start-meeting" class="button-container">
-                        <a href="/room" class="start-meeting-btn">
-                            <i class="fas fa-plus"></i> New Meeting
-                        </a>
-                    </div>
-    
-                    <!-- Input for Meeting Link -->
-                    <div id="enter-meeting-link" class="input-container">
-                        <i class="fas fa-keyboard"></i>
-                        <input type="text" name="link" placeholder="Enter meeting link" id="meeting-link-text-box" class="input-box">
-                    </div>
-    
-                    <!-- Join Button -->
-                    <div id="join-button" class="join-btn">Join</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    
+    <header>
+        <h1 class="app-title">nMeet</h1>
+    </header>
+
+
+    <main>
+        <a href="/room" class="start-meeting-btn">
+            <button><i class="fas fa-video"></i> Start New Meeting</button>
+        </a>
+    </main>
+
+    <footer>
+        © 2024 nMeet. Privacy Respected
+    </footer>
+    <script>
+        document.getElementById('join-button').addEventListener('click', function () {
+            let input = document.getElementById('meeting-link-text-box').value;
+            if (input) {
+                window.location.assign(input);
+            }
+            document.getElementById('meeting-link-text-box').value = "";
+        });
+    </script>
 </body>
+
 </html>
-
-<script>
-    document.getElementById('join-button').addEventListener('click', function() {
-        let input = document.getElementById('meeting-link-text-box').value;
-        window.location.assign(input);
-        document.getElementById('meeting-link-text-box').value = "";
-    });
-</script>
-
-<!-- Styles -->
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-    }
-
-    #header {
-        background-image: url('/Google-Meet-Clone-master 2/assets/bg2.png'); /* Replace with your image path */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100vh; /* Full viewport height */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #root-div {
-        width: 100%;
-        max-width: 800px;
-        text-align: center;
-        color: white;
-    }
-
-    #left-div {
-        padding: 100px;
-    
-        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-        border-radius: 10px;
- 
-    }
-
-    .styled-heading {
-        font-size: 32px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .meeting-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 20px;
-        border-radius: 10px;
-        width: 100%;
-    }
-
-    .button-container {
-        margin-bottom: 20px;
-    }
-
-    .start-meeting-btn {
-        background-color: #437c50;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-size: 18px;
-        display: inline-flex;
-        align-items: center;
-    }
-
-    .start-meeting-btn i {
-        margin-right: 8px;
-    }
-
-    .input-container {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .input-box {
-        background-color: #333;
-        border: none;
-        color: white;
-        padding: 10px;
-        width: 250px;
-        border-radius: 5px;
-        margin-left: 10px;
-        font-size: 16px;
-    }
-
-    .join-btn {
-        background-color: #4686cb;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 18px;
-        text-align: center;
-        width: 150px;
-    }
-
-    .join-btn:hover {
-        background-color: #0056b3;
-    }
-</style>
