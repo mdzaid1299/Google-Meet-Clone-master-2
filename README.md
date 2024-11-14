@@ -1,4 +1,4 @@
-# GMeet : A Google Meet Clone
+# NMeet
 
 NMeet is a video calling platform similar to Google Meet made using NodeJS. 
 
@@ -18,6 +18,7 @@ NMeet is a video calling platform similar to Google Meet made using NodeJS.
 
 ## Run Locally
 npm install 
+
 npm start
   
 
